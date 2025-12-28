@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: sumi
+  name: sumi
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: sumi
+  template:
+    metadata:
+      labels:
+        app: sumi
+    spec:
+      containers:
+      - image: nginx  
+        name: sumi
+        ports:
+          - containerPort: 80
+            name: http
+            protocol: TCP
